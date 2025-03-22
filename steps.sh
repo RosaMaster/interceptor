@@ -10,7 +10,7 @@
 
 
 # 1. Selecione a sua branch
-git checkout -B <branch>
+git checkout -B feature/teste2
 
 # 2. Execute o comando git fetch para baixar as alterações mais recentes do repositório remoto.
 git fetch
@@ -28,7 +28,7 @@ git fetch
 git pull
 
 # 7. Altere para a branch pessoal
-git checkout -B <branch>
+git checkout -B feature/teste2
 
 # 8. Execute o comando git merge para mesclar as alterações da branch develop com a sua branch pessoal.
 git merge develop
