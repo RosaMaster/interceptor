@@ -11,11 +11,14 @@ objeto_registro = {}
 def main():
     '''Função principal do programa'''
 
-    print("\n\n\n--------- Interceptor Project                    ---------")
-    print("--------- Versão 1.0.0                           ---------")
-    print("--------- Autor: DRP01-PJI310-SALA-002GRUPO-014  ---------")
-    print("--------- Data: 2025-05-20                       ---------")
-    print("--------- Inicializando Programa                 ---------\n")
+    company = parameters.Parametros.company_id.value
+
+    print("\n\n\n--------- Interceptor Project                            ---------")
+    print("--------- Versão 1.0.0                                   ---------")
+    print("--------- Autor: DRP01-PJI310-SALA-002GRUPO-014          ---------")
+    print("--------- Data: 2025-05-20                               ---------")
+    print(f"--------- Company ID: {company}          ---------")
+    print("--------- Inicializando Programa                         ---------\n")
 
     # Exemplo e teste de uso de enum
     #print(f"Status Enum Value: {Status.entrada.value}")
@@ -30,9 +33,10 @@ def main():
     today = GeradorDataHora.gerador_data_hora()
 
     # [x] TODO: Criar um dict [objeto JSON]  com a strings extraídas
-    objeto_registro['placa'] = placa_veiculo                # Valor da placa do veículo extraído do vídeo - STRING
-    objeto_registro['data_hora'] = today                    # Data e hora do extraído do sistema - STRING
-    objeto_registro['evento'] = Status.entrada.value        # Status de entrada e saída - INT
+    objeto_registro['board'] = placa_veiculo                                # Valor da placa do veículo extraído do vídeo - STRING
+    objeto_registro['date']  = today                                        # Data e hora do extraído do sistema - STRING
+    objeto_registro['event'] = Status.entrada.value                         # Status de entrada e saída - BOOLEAN
+    objeto_registro['company_id'] = company                                 # ID da empresa - STRING
     
     print(objeto_registro)
     print(type(objeto_registro))
