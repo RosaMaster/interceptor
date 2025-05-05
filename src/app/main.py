@@ -1,6 +1,8 @@
 import os
 from utils.status import Status
 from utils.gerador_data_hora import GeradorDataHora
+from utils.leitor_placa import LeitorPlaca
+from utils.info_sistema import InfoSistemaInterceptor
 from service.resquest import CallApiEndpoint
 from settings import parameters
 import cv2
@@ -11,14 +13,7 @@ objeto_registro = {}
 def main():
     '''Função principal do programa'''
 
-    company = parameters.Parametros.company_id.value
-
-    print("\n\n\n--------- Interceptor Project                            ---------")
-    print("--------- Versão 1.0.0                                   ---------")
-    print("--------- Autor: DRP01-PJI310-SALA-002GRUPO-014          ---------")
-    print("--------- Data: 2025-05-20                               ---------")
-    print(f"--------- Company ID: {company}          ---------")
-    print("--------- Inicializando Programa                         ---------\n")
+    print(InfoSistemaInterceptor.cabecacho)    # Início do programa
 
     # Exemplo e teste de uso de enum
     #print(f"Status Enum Value: {Status.entrada.value}")
@@ -50,8 +45,7 @@ def main():
     # else:
     #     print(f"Erro ao enviar requisição: {result.status_code}")
 
-
-    print("\n--------- Finalizando Programa                   ---------\n\n\n")
+    print(InfoSistemaInterceptor.rodape)       # Fim do programa
 
 if __name__ == "__main__":
     main()
