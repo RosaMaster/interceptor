@@ -5,7 +5,7 @@ class InfoSistemaInterceptor:
 
     company = Parametros.company_id.value
 
-    cabecacho = """
+    cabecacho = f"""
     ########################################################################
     -- Interceptor Project
     -- version 1.0.0

@@ -1,24 +1,26 @@
 # Criar requisição POST
 
-import requests
-import json
 import os
+import requests
 from requests.auth import HTTPBasicAuth
-from settings import parameters
+from settings.parameters import Parametros
 
 class CallApiEndpoint:
     ''' Classe para realizar chamadas de API para o Golang '''
 
-
-    # []TODO: A cada 24  horas renovar o token de autenticação
-
-    def post_request(url, body, headers=None):
+    def post_request(body):
+        ''' Envia uma requisição POST para a API Golang '''
         
-        # Converte os dados em JSON
-        json_body = json.dumps(body)
+        # Define os parâmetros da requisição
+        url = Parametros.url_api_golang.value
+
+        headers = {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        }
         
         # Envia a requisição POST
-        response = requests.post(url, data=json_body, headers=headers)
+        response = requests.post(url, data=body, headers=headers)
         
         return response
     
@@ -27,7 +29,7 @@ class CallApiEndpoint:
         ''' Gera o token de autenticação '''
         
         # Define os parâmetros de autenticação
-        url = parameters.Parametros.url_api_golang.value + "/token"
+        url = Parametros.url_api_golang_token.value + "/token"
         headers = {
             'Content-Type': 'application/json',
             'Accept': 'application/json'
@@ -35,8 +37,8 @@ class CallApiEndpoint:
         
         # Define o corpo da requisição
         body = {
-            "user": parameters.Parametros.user_api.value,
-            "password": parameters.Parametros.password_api.value
+            "user": Parametros.user_api.value,
+            "password": Parametros.password_api.value
         }
         
         # Envia a requisição POST para gerar o token
@@ -45,6 +47,6 @@ class CallApiEndpoint:
         # Retorna o token se a requisição for bem-sucedida
         if response.status_code == 200:
             return response.json().get('token')
-        
-        return None
-
+        else:
+            print(f"Erro ao obter token: {response.status_code} - {response.text}")
+            return None

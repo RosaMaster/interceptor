@@ -1,9 +1,9 @@
+import json
 
-
-class ObjetoJson:
+class CreateObjeto:
     """ Classe que cria um objeto JSON para armazenar informações de placa de veículo, data e status. """
 
-    def __init__(self, board: str, date: str, event: int):
+    def __init__(self, board: str, date: str, event: int, company_id: str, token: str):
         """ Construtor da classe ObjetoJson.
         Args:
             board (str): Placa do veículo.
@@ -14,6 +14,8 @@ class ObjetoJson:
         self.board = board
         self.date = date
         self.event = event
+        self.company_id = company_id
+        self.token = token
 
 
     def to_dict(self):
@@ -24,9 +26,20 @@ class ObjetoJson:
 
         return {
             "board": self.board,
-            "nome": self.nome,
-            "valor": self.valor
+            "date": self.date,
+            "event": self.event,
+            "company_id": self.company_id,
+            "token": self.token
         }
+    
+
+    def to_json(self):
+        """ Converte o objeto em uma string JSON.
+        Returns:
+            str: String JSON com os atributos do objeto.
+        """
+
+        return json.dumps(self.to_dict(), indent=4)
 
 
     @classmethod
@@ -40,6 +53,18 @@ class ObjetoJson:
 
         return cls(
             board=data.get("board"),
-            nome=data.get("nome"),
-            valor=data.get("valor")
+            date=data.get("date"),
+            event=data.get("event"),
+            company_id=data.get("company_id")
+            token=data.get("token")
         )
+    
+
+    # Converte o objeto em uma string JSON
+    def to_json(self):
+        """ Converte o objeto em uma string JSON.
+        Returns:
+            str: String JSON com os atributos do objeto.
+        """
+
+        return json.dumps(self.to_dict(), indent=4)
