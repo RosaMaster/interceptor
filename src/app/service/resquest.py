@@ -8,18 +8,9 @@ from settings.parameters import Parametros
 class CallApiEndpoint:
     ''' Classe para realizar chamadas de API para o Golang '''
 
-    def post_request(body):
+    def post_request(url: str, body: object, headers=None):
         ''' Envia uma requisição POST para a API Golang '''
         
-        # Define os parâmetros da requisição
-        url = Parametros.url_api_golang.value
-
-        headers = {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        }
-        
-        # Envia a requisição POST
         response = requests.post(url, data=body, headers=headers)
         
         return response
@@ -29,7 +20,8 @@ class CallApiEndpoint:
         ''' Gera o token de autenticação '''
         
         # Define os parâmetros de autenticação
-        url = Parametros.url_api_golang_token.value + "/token"
+        url = Parametros.url_api_golang_token.value
+
         headers = {
             'Content-Type': 'application/json',
             'Accept': 'application/json'

@@ -55,7 +55,7 @@ class CreateObjeto:
             board=data.get("board"),
             date=data.get("date"),
             event=data.get("event"),
-            company_id=data.get("company_id")
+            company_id=data.get("company_id"),
             token=data.get("token")
         )
     
