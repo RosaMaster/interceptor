@@ -8,7 +8,7 @@ from settings.parameters import Parametros
 class CallApiEndpoint:
     ''' Classe para realizar chamadas de API para o Golang '''
 
-    def post_request(url: str, body: object, headers=None):
+    def post_request(url: str, body: object, headers: dict):
         ''' Envia uma requisição POST para a API Golang '''
         
         response = requests.post(url, data=body, headers=headers)

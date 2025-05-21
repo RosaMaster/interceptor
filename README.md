@@ -122,3 +122,6 @@ capturar_placa("caminho/para/sua/imagem.jpg")
 
 - A precisão do reconhecimento de placas depende da qualidade da imagem, iluminação e outros fatores.<br>
 - O pré-processamento adequado é crucial para obter bons resultados com o OCR.<br>
+
+
+[HOME](#documentação-e-links-úteis)

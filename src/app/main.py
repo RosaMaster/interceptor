@@ -21,7 +21,7 @@ def main():
     today = GeradorDataHora.gerador_data_hora()     # Data e hora atual do sistema format: 2025-04-05T23:39:04.085Z
 
     # [x] TODO: Capturar imagens da câmera
-    # caminho_video = "./video/video_entrada_carro.mp4"  # Caminho do vídeo
+    # caminho_video = "C:\Users\Administrador\OneDrive\Área de Trabalho\REPO\interceptor\src\app\video"     # Caminho do vídeo
     cap = cv2.VideoCapture(0)                       # Troque '0' pelo caminho do vídeo
 
     placa_anterior_x = None                         # Para rastrear a posição da placa
@@ -30,7 +30,6 @@ def main():
         ret, frame = cap.read()
         if not ret:
             break
-
         
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)     # Converte para escala de cinza
 

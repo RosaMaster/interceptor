@@ -58,13 +58,3 @@ class CreateObjeto:
             company_id=data.get("company_id"),
             token=data.get("token")
         )
-    
-
-    # Converte o objeto em uma string JSON
-    def to_json(self):
-        """ Converte o objeto em uma string JSON.
-        Returns:
-            str: String JSON com os atributos do objeto.
-        """
-
-        return json.dumps(self.to_dict(), indent=4)
