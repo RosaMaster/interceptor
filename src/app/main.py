@@ -21,10 +21,11 @@ def main():
     today = GeradorDataHora.gerador_data_hora()     # Data e hora atual do sistema format: 2025-04-05T23:39:04.085Z
 
     # [x] TODO: Capturar imagens da câmera
-    # caminho_video = "C:\Users\Administrador\OneDrive\Área de Trabalho\REPO\interceptor\src\app\video"     # Caminho do vídeo
-    cap = cv2.VideoCapture(0)                       # Troque '0' pelo caminho do vídeo
+    #caminho_video = "C:\Users\Administrador\OneDrive\Área de Trabalho\REPO\interceptor\src\app\video\video_entrada_carro.mp4"     # Caminho do vídeo
+    caminho_video = os.path.join(os.path.dirname(__file__), 'video', 'video_entrada_carro.mp4')  # Caminho do vídeo 
+    cap = cv2.VideoCapture(caminho_video)                                                        # Troque '0' pelo caminho do vídeo
 
-    placa_anterior_x = None                         # Para rastrear a posição da placa
+    placa_anterior_x = None                                # Para rastrear a posição da placa
 
     while True:
         ret, frame = cap.read()
@@ -43,8 +44,12 @@ def main():
             x_atual = cap.get(cv2.CAP_PROP_POS_FRAMES)  # Simulação de posição da placa
 
             if placa_anterior_x is not None:
-                status = 1 if x_atual > placa_anterior_x else 0
-                DatabaseConexao.salvar_no_banco(placa_detectada.strip(), status)
+
+                if Parametros.feature_toggle_database.value == False:
+                    status = 1 if x_atual > placa_anterior_x else 0
+                    DatabaseConexao.salvar_no_banco(placa_detectada.strip(), status)
+                else:
+                    continue
 
                 # [x] TODO: Criar um dict [objeto JSON]  com a strings extraídas
                 if Parametros.feature_toggle_object.value == False:
