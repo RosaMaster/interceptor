@@ -14,5 +14,6 @@ class Parametros(enum.Enum):
     # TESTES
     status_teste = 1
     token_teste = "aaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa"
+    feature_toggle_database = True
     feature_toggle_object = True
     feature_toggle_call_api = True
