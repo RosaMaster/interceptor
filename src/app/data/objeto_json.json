@@ -1,0 +1,30 @@
+[
+    {
+        "board": "CDE5F45",
+        "date": "2025-05-24T23:10:04.455Z",
+        "event": 1,
+        "company_id": "0d0c1a67-503f-4fa5-a2e4-40b945339f20",
+        "token": "2c627263-0472-4bec-a6c5-5516d4c524ea"
+    },
+    {
+        "board": "JKL9M01",
+        "date": "2025-05-24T23:10:04.455Z",
+        "event": 1,
+        "company_id": "0d0c1a67-503f-4fa5-a2e4-40b945339f20",
+        "token": "2c627263-0472-4bec-a6c5-5516d4c524ea"
+    },
+    {
+        "board": "MNO2P12",
+        "date": "2025-05-24T23:11:10.313Z",
+        "event": 1,
+        "company_id": "0d0c1a67-503f-4fa5-a2e4-40b945339f20",
+        "token": "2cddced4-f5f2-49fd-a155-80f7ea762e54"
+    },
+    {
+        "board": "IJK8L90",
+        "date": "2025-05-24T23:11:10.313Z",
+        "event": 0,
+        "company_id": "0d0c1a67-503f-4fa5-a2e4-40b945339f20",
+        "token": "2cddced4-f5f2-49fd-a155-80f7ea762e54"
+    }
+]
