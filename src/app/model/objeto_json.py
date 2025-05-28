@@ -9,6 +9,8 @@ class CreateObjeto:
             board (str): Placa do veículo.
             date (str): Data e hora do evento.
             event (int): Status do evento (entrada ou saída).
+            company_id (str): ID da empresa.
+            token (str): Token de autenticação.
         """
 
         self.board = board
